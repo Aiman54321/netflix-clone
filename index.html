@@ -1,1024 +1,2246 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Netflix</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gloria+Hallelujah&family=Shadows+Into+Light&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Gloria+Hallelujah&family=Roboto:ital,wght@0,100..900;1,100..900&family=Shadows+Into+Light&display=swap" rel="stylesheet">
-    
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
     <style>
-        
-         
-        
-        
-        *{
+
+        /* =========================================================
+           RESET
+           ========================================================= */
+
+        * {
             box-sizing: border-box;
-            padding: 0;
             margin: 0;
+            padding: 0;
         }
 
-        
-        body{
+        html {
+            scroll-behavior: smooth;
+        }
 
-            background-image: url("BD-en-20250714-TRIFECTA-perspective_90a16610-d777-44e5-b344-bf7bfac84bd9_small.jpg");
+        body {
+            width: 100%;
+            min-height: 100vh;
+            background: #000;
+            color: #fff;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+        button,
+        input,
+        select {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+
+        /* =========================================================
+           HERO
+           ========================================================= */
+
+        .main {
+            width: 100%;
+            min-height: 560px;
+
+            position: relative;
+
+            background-image:
+                linear-gradient(
+                    rgba(0, 0, 0, 0.58),
+                    rgba(0, 0, 0, 0.62)
+                ),
+                url("BD-en-20250714-TRIFECTA-perspective_90a16610-d777-44e5-b344-bf7bfac84bd9_small.jpg");
+
             background-repeat: no-repeat;
             background-size: cover;
-            height: 400px;
-            background-attachment: scroll;
-            position: relative;
-            cursor: pointer;
-            box-shadow:
-            inset 90px 0 90px 120px rgba(0, 0, 0, 0.4),    /* left */
-            inset -90px 0 90px 120px rgba(0, 0, 0, 0.4),   /* right */
-            inset 0 90px 90px 120px rgba(0, 0, 0, 0.4),    /* top */
-            inset 0 -90px 90px 120px rgba(0, 0, 0, 0.4);   /* bottom */
-        }
-        
-        .logo{
+            background-position: center center;
 
-            width: 100px;
-            height: 60px;
-            background: transparent;
-            position: absolute;
-            left: 55px;
-            top: 0px !important;
-        }
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
-        .btn{
-
-            border-radius: 2px;
-            width: 34px;
-            height: 14px;
-            margin-top: 22px;
-            font-size: 6.5px;
-            text-align: center;
-            color: white;
-            background-color: rgba(242, 5, 5, 0.88);
-            margin-left: 540px;
-            border: transparent;
-            cursor: pointer;
-            
-        }
-
-        .para{
-
-             font-family: 'Anton', sans-serif;
-             font-size: 27px;
-             text-align: center;
-             color: white;
-             margin-top: 65px;
-             letter-spacing: 1px;
-        }
-        
-        .para2{
-
-             font-family: 'Anton', sans-serif;
-             font-size: 25px;
-             letter-spacing: 1px;
-             color: white;
-             margin-left: 228px;
-             margin-bottom: 5px;
-        }
-
-        .para3{
-
-             font-family: Arial, Helvetica, sans-serif;
-             font-size: 9px;
-             color: white;
-             margin-left: 245px;
-             font-weight: bolder;
-             margin-bottom: 10px;
-        }
-        
-        .para4{
-            
-            font-family: Arial, Helvetica, sans-serif;
-             font-size: 7px;
-             color: whitesmoke;
-             text-align: center;
-             margin-bottom: 10px;
-        }
-
-        
-
-        .search{
-
-            margin-left: 194px;
-            border: 1px whitesmoke solid;
-            background-color: rgba(0, 0, 0, 0.4);
-            width: 158px;
-            height: 24px;
-            font-size: 7px;
-            padding-left: 10px;
-            color: white;
-            border-radius: 2px;
-            box-shadow: inset 0 0 140px 200px rgba(0, 0, 0, 0.4);
-            outline: none;
-      
-        }
-
-        .search::placeholder {
-
-            color: white;
-        }
-
-        .btn2{
-
-            border-radius: 2px;
-            width: 90px;
-            height: 25px;
-            font-size: 12px;
-            color: white;
-            background-color: rgba(242, 5, 5, 0.88);
-            left: 356px;
-            border: transparent;
-            position: absolute;
-            top: 223.5px;
-            cursor: pointer;
-            
-        }
-
-        .main{
-
-            position: relative;
-            
-            
-        }
-
-        .grad{
-
-            height: 50px;
-            background-color: rgba(0, 0, 0);
-            position: absolute;
-            z-index: 2;
-            top: 320px;
-            width: 634px;
-            border-top-left-radius: 50%;
-            border-top-right-radius: 50%;
-            border-top: 1.8px solid rgba(201, 18, 18);
-            
-        }           
- 
-           
-        .another{
-
-            width: 634px;
-            height: 920px;
-            top: 340px;
-            z-index: 1;
-            position: absolute;
-            background-color: rgba(0, 0, 0);
             overflow: hidden;
         }
 
-        .slide, .game{
 
-            display: flex;
-            gap: 15px;
-        }
+        /* =========================================================
+           NAVIGATION
+           ========================================================= */
 
-        .aiman{
-          
-            width: 70px;
+        .logo {
+            position: absolute;
+
+            top: 28px;
+            left: clamp(32px, 7vw, 100px);
+
+            width: 175px;
             height: auto;
-            object-fit: contain; 
-            margin-bottom: 850px;
-            border-radius: 5px;
+
+            z-index: 20;
         }
 
-        #n1{
+        .btn {
+            position: absolute;
 
-            margin-left: 65px;
-        }
+            top: 28px;
+            right: clamp(32px, 7vw, 100px);
 
-        .trend{
+            width: auto;
+            height: 42px;
 
-            font-size: 10px;
+            padding: 0 28px;
+
+            border: none;
+            border-radius: 4px;
+
+            background: #e50914;
             color: white;
+
             font-family: Arial, Helvetica, sans-serif;
-            font-weight: bold;
-            margin-top: 30px;
-            margin-left: 55px;
+            font-size: 16px;
+            font-weight: 700;
+
+            z-index: 20;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
         }
 
-       
-        
-        
-        .Happiest{
-
-            border: 1px solid grey;
-            height: 60px;
-            background-color: rgba(0, 0, 0);
-            color: grey;
-            border-radius: 20px;
-            width: 15px;
-            margin-top: 25px;
-            margin-left: 10px;
-            font-size: 12px;
-            cursor: pointer;
-        }
-        
-
-        .cover{
-
-            width: 40px;
-            height: 100px;
-            background-color: rgba(0, 0, 0);
-            z-index: 10;
-            position: absolute;
-            margin-left: 542px;
-            margin-top: 130px;
+        .btn:hover {
+            background: #f40612;
+            transform: translateY(-1px);
         }
 
-        .Luckiest{
-            
-            width: 40px;
-            height: 100px;
-            background-color: black;
-            z-index: 10;
-            position: absolute;
-            margin-left: 50px;
-            margin-top: 130px;
-            display: none;
-            cursor: pointer;
-        }
 
-        .slide{
+        /* =========================================================
+           HERO CONTENT
+           ========================================================= */
 
-            margin-top: 38px;
-            display: none;
-            transition: transform 4s ease;
-        }
+        .hero-content {
+            width: min(850px, 90%);
 
-        .game{
-
-            margin-top: 38px;
-        }
-
-        .gani{
+            margin-top: 125px;
 
             display: flex;
-            margin-top: 272px;
+            flex-direction: column;
+            align-items: center;
+
+            text-align: center;
+
+            position: relative;
+            z-index: 10;
+        }
+
+        .para {
+            font-family: "Anton", sans-serif;
+
+            font-size: clamp(44px, 5vw, 72px);
+            line-height: 1.05;
+
+            letter-spacing: 0.5px;
+
+            color: #fff;
+        }
+
+        .para2 {
+            font-family: "Anton", sans-serif;
+
+            font-size: clamp(44px, 5vw, 72px);
+            line-height: 1.05;
+
+            letter-spacing: 0.5px;
+
+            color: #fff;
+
+            margin-top: 2px;
+        }
+
+        .para3 {
+            margin-top: 20px;
+
+            font-size: 18px;
+            font-weight: 700;
+
+            color: #fff;
+        }
+
+        .para4 {
+            margin-top: 14px;
+
+            font-size: 16px;
+            line-height: 1.5;
+
+            color: #fff;
+        }
+
+
+        /* =========================================================
+           HERO EMAIL FORM
+           ========================================================= */
+
+        .hero-form {
+            width: min(620px, 90%);
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-top: 10px;
+        }
+
+        .search {
+            flex: 1;
+
+            min-width: 0;
+            height: 54px;
+
+            padding: 0 18px;
+
+            border: 1px solid rgba(255, 255, 255, 0.65);
+            border-radius: 4px;
+
+            outline: none;
+
+            background: rgba(0, 0, 0, 0.55);
+
+            color: #fff;
+
+            font-size: 16px;
+        }
+
+        .search::placeholder {
+            color: #ddd;
+        }
+
+        .search:focus {
+            border-color: #fff;
+        }
+
+        .btn2 {
+            flex: 0 0 auto;
+
+            height: 54px;
+
+            padding: 0 25px;
+
+            border: none;
+            border-radius: 4px;
+
+            background: #e50914;
+            color: white;
+
+            font-size: 17px;
+            font-weight: 700;
+
+            white-space: nowrap;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .btn2:hover {
+            background: #f40612;
+            transform: translateY(-1px);
+        }
+
+
+        /* =========================================================
+           CURVED TRANSITION
+           ========================================================= */
+
+        .grad {
+            position: absolute;
+
+            left: -5%;
+            bottom: -1px;
+
+            width: 110%;
+            height: 48px;
+
+            background: #000;
+
+            border-top: 2px solid #e50914;
+
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+
+            z-index: 15;
+        }
+
+
+        /* =========================================================
+           MAIN BLACK CONTENT
+           ========================================================= */
+
+        .another {
+            width: 100%;
+
+            background: #000;
+
+            padding: 48px 0 80px;
+        }
+
+
+        /* =========================================================
+           CONTENT WIDTH
+           ========================================================= */
+
+        .section-inner {
+            width: min(1300px, calc(100% - 80px));
+
+            margin: 0 auto;
+        }
+
+
+        /* =========================================================
+           TRENDING
+           ========================================================= */
+
+        .trend {
+            color: white;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            font-size: 25px;
+            font-weight: 700;
+
+            margin-bottom: 22px;
+        }
+
+        .trending-wrapper {
+            position: relative;
+
+            width: 100%;
+        }
+
+        .poster-row {
+            display: flex;
+            gap: 28px;
+
+            width: 100%;
+
+            overflow: hidden;
+
+            padding: 0 50px;
+        }
+
+        .game,
+        .slide {
+            display: flex;
+
+            flex: 0 0 100%;
+
+            gap: 28px;
+
+            transition: transform 0.45s ease;
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .aiman {
+            width: calc(
+                (100% - 140px) / 6
+            );
+
+            aspect-ratio: 2 / 3;
+
+            object-fit: cover;
+
+            flex-shrink: 0;
+
+            border-radius: 8px;
+
+            display: block;
+
+            transition:
+                transform 0.25s ease;
+        }
+
+        .aiman:hover {
+            transform: scale(1.04);
+        }
+
+
+        /* =========================================================
+           TRENDING BUTTONS
+           ========================================================= */
+
+        .cover,
+        .Luckiest {
+            position: absolute;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            width: 50px;
+            height: 120px;
+
+            z-index: 30;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: transparent;
+        }
+
+        .cover {
+            right: -65px;
+        }
+
+        .Luckiest {
+            left: -65px;
+            display: none;
+        }
+
+        .Happiest {
+            width: 44px;
+            height: 120px;
+
+            border: 1px solid rgba(255, 255, 255, 0.7);
+
+            border-radius: 50px;
+
+            background: rgba(0, 0, 0, 0.85);
+
+            color: white;
+
+            font-size: 25px;
+            line-height: 1;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition:
+                background 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .Happiest:hover {
+            background: rgba(30, 30, 30, 0.95);
+            border-color: white;
+        }
+
+
+        /* =========================================================
+           MORE REASONS
+           ========================================================= */
+
+        .more {
+            color: white;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            font-size: 25px;
+            font-weight: 700;
+
+            margin-top: 78px;
+            margin-bottom: 24px;
+        }
+
+        .gani {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 20px;
+
+            width: 100%;
+        }
+
+        .gani .a {
+            min-height: 190px;
+
+            padding: 24px 18px;
+
+            border-radius: 7px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #30245c,
+                    #191035
+                );
+
+            overflow: hidden;
+        }
+
+        .gani span {
+            display: block;
+
+            margin: 0 0 14px;
+
+            color: white;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            font-size: 18px;
+            line-height: 1.25;
+
+            font-weight: 700;
+        }
+
+        .agc {
+            margin: 0;
+
+            color: rgba(255, 255, 255, 0.78);
+
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+
+        /* =========================================================
+           FAQ
+           ========================================================= */
+
+        .penguin {
+            color: white;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            font-size: 25px;
+            font-weight: 700;
+
+            margin-top: 58px;
             margin-bottom: 20px;
         }
 
-        
-
-        .gani .a{
-
-            width: 122px;
-            height: 120px;
-            background-color: white;
-            z-index: 100;
-            margin-left: 8px;
-            border-radius: 5px;
-            background: linear-gradient(to right, rgba(54, 44, 96, 0.8), rgba(63, 43, 129, 0.3));
+        .best {
+            width: 100%;
         }
 
-        #b{
+        .number {
+            width: 100%;
+            min-height: 72px;
 
-            margin-left: 60px;
+            margin-bottom: 8px;
+
+            background: #2d2d2d;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 60px 0 22px;
+
+            transition: background 0.2s ease;
         }
 
-        .more{
+        .number:hover {
+            background: #414141;
+        }
 
+        .p {
             color: white;
-            font-family: 'Proxima Nova', 'Helvetica Neue', Arial, sans-serif;
-            font-size: 10px;
-            font-weight: 400;
-            margin-top: 255px;
-            margin-left: 60px;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            font-size: 18px;
+
+            margin: 0;
+        }
+
+        .spanOne {
             position: absolute;
-            z-index: 200;
-        }
 
-        .penguin{
+            right: 24px;
+            top: 50%;
+
+            transform: translateY(-50%);
 
             color: white;
-            font-family: 'Proxima Nova', 'Helvetica Neue', Arial, sans-serif;
-            font-size: 10px;
-            font-weight: 400;
-            z-index: 300;
-            position: absolute;
-            margin-left: 60px;
+
+            font-size: 34px;
+            font-weight: 300;
+
+            line-height: 1;
         }
 
-        span{
 
-            font-size: 10px;
+        /* =========================================================
+           LOWER EMAIL
+           ========================================================= */
+
+        .paragraph {
             color: white;
-            font-family: 'Proxima Nova', 'Helvetica Neue', Arial, sans-serif;
-            font-weight: bold;
-            margin-left: 5px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            display: block;
+
+            text-align: center;
+
+            font-size: 15px;
+            line-height: 1.5;
+
+            margin-top: 48px;
+            margin-bottom: 16px;
         }
-        
-        .agc{
 
-            color: #ffffffB3;
-            font-size: 8px;
-            margin-left: 5px;
-            
+        .ab {
+            width: min(1000px, 100%);
+
+            margin: 0 auto;
+
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
         }
-        
 
-      .best .number{
+        .princess {
+            flex: 1;
 
-        width: 514px;
-        height: 40px;
-        background-color: rgba(128, 128, 128, 0.393);
-        margin-bottom: 4px;
-        position: relative;
-        
-    }
+            min-width: 0;
 
-    .best{
+            height: 54px;
 
-    
-        width: 520px;
-        height: 300px;
-        background-color: rgba(0, 0, 0);
-        position: absolute;
-        z-index: 300;
-        margin-top: 18px;
-        margin-left: 60px;
-        
-    }
+            padding: 0 15px;
 
-    .p{
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-size: 10px;
-        color: white;
-        padding-top: 15px;
-        padding-left: 20px;
-    }
+            border: 1px solid rgba(255, 255, 255, 0.45);
+            border-radius: 4px;
 
-    .spanOne{
+            background: #000;
 
-        
-        font-size: 22px;
-        color: white;
-        top: 8px;
-        left: 495px;
-        position: absolute;
-    }
-
-    .ab{
-
-        height: 50px;
-        position: absolute;
-        z-index: 400;
-    }
-
-     .princess{
-
-            margin-left: 169px;
-            border: 1px rgba(128, 128, 128, 0.461) solid;
-            background-color: rgba(0, 0, 0, 0.4);
-            width: 220px;
-            height: 24px;
-            font-size: 7px;
-            padding-left: 10px;
             color: white;
-            border-radius: 2px;
-            box-shadow: inset 0 0 140px 200px rgba(0, 0, 0, 0.4);
+
+            font-size: 16px;
+
             outline: none;
-            margin-top: 328px;
         }
 
         .princess::placeholder {
-
-            color: white;
+            color: #ddd;
         }
 
-        .Daisukii{
+        .Daisukii {
+            flex: 0 0 auto;
 
-            border-radius: 2px;
-            width: 80px;
-            height: 24px;
-            font-size: 10px;
-            font-weight: bold;
+            height: 54px;
+
+            padding: 0 24px;
+
+            border: none;
+            border-radius: 4px;
+
+            background: #e50914;
+
             color: white;
-            background-color: rgba(242, 5, 5, 0.88);
-            left: 393px;
-            border: transparent;
-            position: absolute;
-            top: 328px;
+
+            font-size: 17px;
+            font-weight: 700;
+
+            white-space: nowrap;
+        }
+
+        .Daisukii:hover {
+            background: #f40612;
+        }
+
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+
+        .thanks {
+            width: min(1300px, calc(100% - 80px));
+
+            margin: 60px auto 0;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 40px;
+
+            color: #aaa;
+        }
+
+        .we,
+        .us,
+        .our,
+        .Life {
+            width: auto;
+            height: auto;
+
+            background: transparent;
+
+            position: static;
+        }
+
+        .p1,
+        .p2,
+        .p3,
+        .p4 {
+            margin: 0;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            font-size: 14px;
+            line-height: 2.3;
+
+            color: #aaa;
+
+            white-space: normal;
+        }
+
+        .unique,
+        .final {
+            display: block;
+
+            width: fit-content;
+
+            color: #aaa;
+
+            font-size: 14px;
+
             cursor: pointer;
         }
 
-        .paragraph{
-            
-             font-family: Arial, Helvetica, sans-serif;
-             font-size: 7px;
-             color: whitesmoke;
-             text-align: center;
-             margin-bottom: 10px;
-             position: absolute;
-             z-index: 400;
-             top: 972px;
-             left: 50%;                    /* Move to center */
-             transform: translateX(-50%);
-        }
-
-        .we, .us, .our, .Life{
-
-            height: 150px;
-            width: 140px;
-            background-color: black;
-            position: absolute;
-            z-index: 400;
-            color: black;
-            font-family: "Roboto", sans-serif;
-        }
-
-        .us{
-
-            margin-left: 130px;
-            margin-top: 25px;
-        }
-
-        .our{
-
-            margin-left: 270px;
-            margin-top: 18px;
-        }
-
-        .Life{
-
-            width: 75px;
-            height: 150px;
-            margin-left: 390px;
-            margin-top: 20px;
-        }
-
-
-        .thanks{
-
-            height: 150px;
-            width: 500px;
-            left: 60px;
-            background-color: black;
-            position: absolute;
-            z-index: 400;
-            top: 1030px;
-            padding-right: 20px;
-        }
-
-        .p1, .p2, .p3, .p4{
-
-            font-size: 7px;
-            color: grey;
-            font-family: "Roboto", sans-serif;
-            font-weight: 400;
-            
-        }
-
-        .unique{
-
-            text-decoration-color: white;
-            text-decoration-thickness: 0.5px;
-        }
-
-        .final{
-
-            font-size: 6.2px;
-            text-decoration-color: white;
-            cursor: pointer;
-            
-
-            &:active{
-
-                color: red;
-
-            }
-        }
-
-        select{
-
-            position: absolute;
-            z-index: 400;
-            top: 1148px;
-            left: 60px;
-            font-size: 6px;
-            padding: 2px;
-            background-color: black;
+        .unique:hover,
+        .final:hover {
             color: white;
-            border-radius: 2px;
-            cursor: pointer;
         }
 
-        .happiness{
-
-            font-size: 6px;
-            color: grey;
-            font-family: "Roboto", sans-serif;
-            font-weight: 400;
-            position: absolute;
-            z-index: 400;
-            top: 1170px;
-            left: 60px;
+        .final:active {
+            color: red;
         }
 
-        .tv{
 
-            font-size: 5.5px;
-            color: grey;
-            font-family: "Roboto", sans-serif;
-            font-weight: 400;
+        /* =========================================================
+           LANGUAGE
+           ========================================================= */
+
+        select {
+            display: block;
+
+            margin-top: 40px;
+            margin-left: max(40px, calc((100% - 1300px) / 2));
+
+            width: 110px;
+            height: 38px;
+
+            padding: 0 10px;
+
+            border: 1px solid #777;
+            border-radius: 4px;
+
+            background: #000;
+
+            color: white;
+
+            font-size: 14px;
         }
 
-        .tv a{
 
-            color:rgba(44, 44, 217, 0.837);
+        /* =========================================================
+           COUNTRY / RECAPTCHA
+           ========================================================= */
+
+        .happiness {
+            width: min(1300px, calc(100% - 80px));
+
+            margin: 24px auto 70px;
+
+            color: #777;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .tv {
+            margin-top: 15px;
+
+            color: #777;
+
+            font-size: 12px;
+        }
+
+        .tv a {
+            color: #448eea;
+
             text-decoration: underline;
+
             cursor: pointer;
         }
 
-        @media only screen and (max-width: 480px)
-        {
-            *{
-                box-sizing: border-box;
-                
+
+        /* =========================================================
+           LARGE DESKTOP
+           ========================================================= */
+
+        @media screen and (min-width: 1440px) {
+
+            .main {
+                min-height: 570px;
             }
 
-            .grad{
-
-                max-width: 480px;
+            .hero-content {
+                margin-top: 130px;
             }
 
-            .another{
+            .logo {
+                top: 28px;
+                left: clamp(32px, 7vw, 100px);
 
-                max-width: 480px;
-               
+                width: 175px;
             }
 
-            .cover{
+            .btn {
+                top: 28px;
+                right: clamp(32px, 7vw, 100px);
 
+                height: 42px;
+
+                padding-left: 28px;
+                padding-right: 28px;
+
+                font-size: 16px;
+            }
+
+            .section-inner {
+                width: min(1380px, calc(100% - 100px));
+            }
+
+            .thanks {
+                width: min(1380px, calc(100% - 100px));
+            }
+
+            .happiness {
+                width: min(1380px, calc(100% - 100px));
+            }
+
+            .poster-row {
+                padding-left: 55px;
+                padding-right: 55px;
+            }
+
+            .game,
+            .slide {
+                gap: 30px;
+            }
+
+            .cover,
+            .Luckiest {
+                width: 52px;
+                height: 125px;
+            }
+
+            .cover {
+                right: -70px;
+            }
+
+            .Luckiest {
+                left: -70px;
+            }
+
+            .Happiest {
+                width: 46px;
+                height: 125px;
+
+                font-size: 26px;
+            }
+        }
+
+
+        /* =========================================================
+           TABLET
+           ========================================================= */
+
+        @media screen and (min-width: 701px) and (max-width: 1100px) {
+
+            .main {
+                min-height: 520px;
+            }
+
+            .logo {
+                left: 40px;
+                top: 25px;
+
+                width: 145px;
+            }
+
+            .btn {
+                right: 40px;
+                top: 25px;
+
+                height: 40px;
+
+                padding-left: 24px;
+                padding-right: 24px;
+
+                font-size: 15px;
+            }
+
+            .hero-content {
+                margin-top: 120px;
+            }
+
+            .para,
+            .para2 {
+                font-size: clamp(40px, 6vw, 60px);
+            }
+
+            .para3 {
+                font-size: 17px;
+            }
+
+            .para4 {
+                font-size: 14px;
+            }
+
+            .hero-form {
+                width: 75%;
+            }
+
+            .section-inner {
+                width: calc(100% - 60px);
+            }
+
+            .poster-row {
+                padding: 0 42px;
+            }
+
+            .game,
+            .slide {
+                gap: 18px;
+            }
+
+            .aiman {
+                width: calc((100% - 90px) / 4);
+            }
+
+            .cover,
+            .Luckiest {
+                width: 46px;
+                height: 105px;
+            }
+
+            .cover {
+                right: -55px;
+            }
+
+            .Luckiest {
+                left: -55px;
+            }
+
+            .Happiest {
                 width: 40px;
-                height: 100px;
-                background-color: rgba(0, 0, 0);
-                z-index: 10;
-                position: absolute;
-                right: 2px;
-                top: 230px;
-            
+                height: 105px;
+
+                font-size: 23px;
             }
 
-            .Luckiest{
-                
-                position: absolute;
-                right: 390px;
-                top: 230px;
+            .gani {
+                grid-template-columns: repeat(2, 1fr);
             }
 
-            .aiman{
-
-                max-width: 52px;
+            .thanks {
+                width: calc(100% - 60px);
             }
 
-            .gani{
-
-                margin-right: 18px;
+            .happiness {
+                width: calc(100% - 60px);
             }
 
-            .a{
-                
-                padding-right: 8px;
-                margin-top: 5px;
-            }
-
-            .number{ 
-
-                max-width: 402px;
-                margin-top: 2px;
-                position: relative;
-            }
-
-            .number .spanOne {
-                
-                position: absolute;
-                top: 50%;
-                right: 15px;
-                left: auto;  /* cancel original left */
-                transform: translateY(-50%);
-                font-size: 18px;
-            }
-
-            
-
-           .thanks{
-
-                max-width: 400px;
-            
-            }
-
-            body{
-
-                position: relative;
-            }
-            
-            .p4{
-
-                position: absolute;
-                right: 92px;
-            }
-
-            .p3{
-
-                position: absolute;
-                right: 120px;
-            }
-
-            .p2{
-
-                position: absolute;
-                right: 100px;
-            }
-
-           
-            
-            .paragraph{
-
-                text-align: center;
-                margin-left: 15px;
-            }
-
-            .Daisukii{
-
-                margin-left: 108px;
-            }
-
-            .princess{
-
-                position: relative;
-                left: 105px;
-            }
-
-            .ab{
-
-                position: relative;
-                right: 168px;
-            }
-
-            .btn{
-                
-                position: relative;
-                right: 150px;
-            }
-
-            .para{
-
+            select {
                 margin-left: 30px;
             }
-
-            .para2{
-
-                margin-left: 162px;
-            }
-
-            .para3{
-
-                margin-left: 175px;
-            }
-
-            .para4{
-
-                margin-left: 20px;
-            }
-
-            .search{
-
-                position: relative;
-                top: 4px;
-                right: 62px;
-            }
-
-            .btn2{
-
-                 position: absolute;
-                 left: 295px;
-            }
-
-            .best{
-
-                max-width: 400px;
-            }
-
-            body{
-
-                background-size: 100%;
-                height: 500px;
-            }
-
         }
-        
-    </style>
 
+
+        /* =========================================================
+           MOBILE
+           SCREENSHOT-MATCHED LAYOUT
+           ========================================================= */
+
+        @media screen and (max-width: 700px) {
+
+            /* -----------------------------------------------------
+               HERO
+               ----------------------------------------------------- */
+
+            .main {
+                min-height: 620px;
+
+                background-position: center top;
+            }
+
+            .logo {
+                top: 22px;
+                left: 22px;
+
+                width: 120px;
+            }
+
+            .btn {
+                top: 22px;
+                right: 22px;
+
+                height: 38px;
+
+                padding-left: 22px;
+                padding-right: 22px;
+
+                font-size: 14px;
+            }
+
+            .hero-content {
+                width: calc(100% - 40px);
+
+                margin-top: 155px;
+            }
+
+            .para,
+            .para2 {
+                font-size: clamp(34px, 9.2vw, 46px);
+
+                line-height: 1.04;
+            }
+
+            .para3 {
+                margin-top: 16px;
+
+                font-size: 15px;
+            }
+
+            .para4 {
+                margin-top: 13px;
+
+                max-width: 410px;
+
+                font-size: 13px;
+                line-height: 1.5;
+            }
+
+            .hero-form {
+                width: 100%;
+
+                flex-direction: column;
+
+                gap: 10px;
+
+                margin-top: 15px;
+            }
+
+            .search {
+                width: 100%;
+
+                height: 48px;
+
+                font-size: 15px;
+            }
+
+            .btn2 {
+                width: auto;
+
+                min-width: 145px;
+
+                height: 48px;
+
+                padding: 0 24px;
+
+                font-size: 16px;
+            }
+
+            .grad {
+                height: 42px;
+            }
+
+
+            /* -----------------------------------------------------
+               MAIN CONTENT
+               ----------------------------------------------------- */
+
+            .another {
+                padding-top: 34px;
+
+                padding-bottom: 60px;
+            }
+
+            .section-inner {
+                width: calc(100% - 48px);
+            }
+
+
+            /* -----------------------------------------------------
+               TRENDING
+               ----------------------------------------------------- */
+
+            .trend {
+                font-size: 21px;
+
+                margin-bottom: 16px;
+            }
+
+            .trending-wrapper {
+                width: calc(100% + 0px);
+            }
+
+            .poster-row {
+                width: 100%;
+
+                overflow-x: auto;
+                overflow-y: hidden;
+
+                padding: 0 48px 10px 10px;
+
+                scroll-behavior: smooth;
+
+                scrollbar-width: none;
+            }
+
+            .poster-row::-webkit-scrollbar {
+                display: none;
+            }
+
+            .game,
+            .slide {
+                flex: 0 0 auto;
+
+                gap: 10px;
+            }
+
+            .aiman {
+                width: 112px;
+
+                min-width: 112px;
+
+                aspect-ratio: 2 / 3;
+
+                border-radius: 8px;
+            }
+
+
+            /* -----------------------------------------------------
+               LONG TRENDING ARROWS
+               ----------------------------------------------------- */
+
+            .cover,
+            .Luckiest {
+                width: 38px;
+                height: 120px;
+
+                top: 50%;
+
+                transform: translateY(-50%);
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                pointer-events: none;
+            }
+
+            .cover {
+                right: 0;
+            }
+
+            .Luckiest {
+                left: 0;
+
+                display: none;
+            }
+
+            .Happiest {
+                width: 36px;
+                height: 120px;
+
+                border: none;
+
+                border-radius: 9px;
+
+                background: rgba(30, 30, 30, 0.9);
+
+                color: #ddd;
+
+                font-size: 27px;
+
+                pointer-events: auto;
+            }
+
+            .Happiest:hover {
+                background: rgba(45, 45, 45, 0.95);
+
+                border: none;
+            }
+
+
+            /* -----------------------------------------------------
+               MORE REASONS
+               ----------------------------------------------------- */
+
+            .more {
+                margin-top: 55px;
+
+                margin-bottom: 12px;
+
+                font-size: 21px;
+            }
+
+            .gani {
+                grid-template-columns: 1fr;
+
+                gap: 10px;
+            }
+
+            .gani .a {
+                width: 100%;
+
+                min-height: 177px;
+
+                padding: 25px 16px;
+
+                border-radius: 16px;
+            }
+
+            .gani span {
+                margin-bottom: 10px;
+
+                font-size: 18px;
+
+                line-height: 1.25;
+            }
+
+            .agc {
+                font-size: 14px;
+
+                line-height: 1.45;
+            }
+
+
+            /* -----------------------------------------------------
+               FAQ
+               ----------------------------------------------------- */
+
+            .penguin {
+                margin-top: 48px;
+
+                margin-bottom: 18px;
+
+                font-size: 21px;
+            }
+
+            .number {
+                min-height: 62px;
+
+                padding-left: 16px;
+
+                padding-right: 48px;
+            }
+
+            .p {
+                font-size: 14px;
+            }
+
+            .spanOne {
+                right: 16px;
+
+                font-size: 29px;
+            }
+
+
+            /* -----------------------------------------------------
+               LOWER EMAIL
+               ----------------------------------------------------- */
+
+            .paragraph {
+                margin-top: 40px;
+
+                margin-bottom: 16px;
+
+                font-size: 13px;
+            }
+
+            .ab {
+                width: 100%;
+
+                flex-direction: column;
+
+                gap: 10px;
+            }
+
+            .princess {
+                width: 100%;
+
+                height: 50px;
+
+                font-size: 14px;
+            }
+
+            .Daisukii {
+                width: auto;
+
+                min-width: 145px;
+
+                height: 50px;
+
+                padding: 0 22px;
+
+                font-size: 15px;
+            }
+
+
+            /* -----------------------------------------------------
+               FOOTER
+               ----------------------------------------------------- */
+
+            .thanks {
+                width: calc(100% - 48px);
+
+                margin-top: 50px;
+
+                grid-template-columns: 1fr 1fr;
+
+                gap: 20px 16px;
+            }
+
+            .p1,
+            .p2,
+            .p3,
+            .p4,
+            .unique,
+            .final {
+                font-size: 12px;
+
+                line-height: 2;
+            }
+
+            select {
+                margin-left: 24px;
+
+                margin-top: 35px;
+            }
+
+            .happiness {
+                width: calc(100% - 48px);
+
+                margin-top: 22px;
+
+                margin-bottom: 55px;
+
+                font-size: 12px;
+            }
+
+            .tv {
+                font-size: 11px;
+            }
+        }
+
+
+        /* =========================================================
+           SMALL PHONES
+           ========================================================= */
+
+        @media screen and (max-width: 480px) {
+
+            /* -----------------------------------------------------
+               HERO
+               ----------------------------------------------------- */
+
+            .main {
+                min-height: 620px;
+            }
+
+            .logo {
+                left: 20px;
+
+                top: 20px;
+
+                width: 108px;
+            }
+
+            .btn {
+                right: 20px;
+
+                top: 20px;
+
+                height: 36px;
+
+                padding-left: 18px;
+                padding-right: 18px;
+
+                font-size: 13px;
+            }
+
+            .hero-content {
+                width: calc(100% - 40px);
+
+                margin-top: 145px;
+            }
+
+            .para,
+            .para2 {
+                font-size: clamp(31px, 8.8vw, 40px);
+            }
+
+            .para3 {
+                margin-top: 15px;
+
+                font-size: 14px;
+            }
+
+            .para4 {
+                font-size: 12px;
+
+                line-height: 1.5;
+            }
+
+            .hero-form {
+                margin-top: 14px;
+            }
+
+            .search {
+                height: 48px;
+
+                font-size: 14px;
+            }
+
+            .btn2 {
+                height: 47px;
+
+                font-size: 15px;
+            }
+
+
+            /* -----------------------------------------------------
+               CONTENT
+               ----------------------------------------------------- */
+
+            .section-inner {
+                width: calc(100% - 48px);
+            }
+
+            .trend {
+                font-size: 20px;
+
+                margin-bottom: 16px;
+            }
+
+
+            /* -----------------------------------------------------
+               TRENDING
+               ----------------------------------------------------- */
+
+            .poster-row {
+                padding-left: 10px;
+
+                padding-right: 44px;
+            }
+
+            .game,
+            .slide {
+                gap: 9px;
+            }
+
+            .aiman {
+                width: 110px;
+
+                min-width: 110px;
+            }
+
+            .cover,
+            .Luckiest {
+                width: 36px;
+
+                height: 112px;
+            }
+
+            .cover {
+                right: 0;
+            }
+
+            .Luckiest {
+                left: 0;
+            }
+
+            .Happiest {
+                width: 34px;
+
+                height: 112px;
+
+                border-radius: 8px;
+
+                font-size: 25px;
+            }
+
+
+            /* -----------------------------------------------------
+               MORE REASONS
+               ----------------------------------------------------- */
+
+            .more {
+                margin-top: 52px;
+
+                margin-bottom: 12px;
+
+                font-size: 20px;
+            }
+
+            .gani {
+                gap: 9px;
+            }
+
+            .gani .a {
+                min-height: 177px;
+
+                padding: 24px 16px;
+
+                border-radius: 16px;
+            }
+
+            .gani span {
+                font-size: 17px;
+            }
+
+            .agc {
+                font-size: 13px;
+            }
+
+
+            /* -----------------------------------------------------
+               FAQ
+               ----------------------------------------------------- */
+
+            .penguin {
+                font-size: 20px;
+
+                margin-top: 46px;
+            }
+
+            .number {
+                min-height: 61px;
+            }
+
+            .p {
+                font-size: 14px;
+            }
+
+
+            /* -----------------------------------------------------
+               FOOTER
+               ----------------------------------------------------- */
+
+            .thanks {
+                width: calc(100% - 40px);
+
+                grid-template-columns: 1fr 1fr;
+
+                gap: 15px;
+            }
+
+            .p1,
+            .p2,
+            .p3,
+            .p4,
+            .unique,
+            .final {
+                font-size: 11px;
+            }
+        }
+
+
+        /* =========================================================
+           VERY SMALL PHONES
+           ========================================================= */
+
+        @media screen and (max-width: 360px) {
+
+            .main {
+                min-height: 600px;
+            }
+
+            .logo {
+                width: 95px;
+
+                left: 18px;
+
+                top: 20px;
+            }
+
+            .btn {
+                right: 18px;
+
+                top: 20px;
+
+                height: 34px;
+
+                padding-left: 16px;
+                padding-right: 16px;
+
+                font-size: 12px;
+            }
+
+            .hero-content {
+                width: calc(100% - 36px);
+
+                margin-top: 130px;
+            }
+
+            .para,
+            .para2 {
+                font-size: 30px;
+            }
+
+            .para3 {
+                font-size: 13px;
+            }
+
+            .para4 {
+                font-size: 11px;
+            }
+
+            .search {
+                height: 46px;
+            }
+
+            .btn2 {
+                height: 45px;
+            }
+
+
+            /* -----------------------------------------------------
+               CONTENT
+               ----------------------------------------------------- */
+
+            .section-inner {
+                width: calc(100% - 36px);
+            }
+
+            .trend,
+            .more,
+            .penguin {
+                font-size: 19px;
+            }
+
+
+            /* -----------------------------------------------------
+               TRENDING
+               ----------------------------------------------------- */
+
+            .poster-row {
+                padding-left: 8px;
+
+                padding-right: 40px;
+            }
+
+            .game,
+            .slide {
+                gap: 8px;
+            }
+
+            .aiman {
+                width: 96px;
+
+                min-width: 96px;
+            }
+
+            .cover,
+            .Luckiest {
+                width: 34px;
+
+                height: 100px;
+            }
+
+            .cover {
+                right: 0;
+            }
+
+            .Luckiest {
+                left: 0;
+            }
+
+            .Happiest {
+                width: 30px;
+
+                height: 100px;
+
+                font-size: 22px;
+            }
+
+
+            /* -----------------------------------------------------
+               MORE REASONS
+               ----------------------------------------------------- */
+
+            .gani .a {
+                min-height: 160px;
+
+                padding: 22px 15px;
+            }
+
+            .gani span {
+                font-size: 16px;
+            }
+
+            .agc {
+                font-size: 12px;
+            }
+
+
+            /* -----------------------------------------------------
+               FAQ
+               ----------------------------------------------------- */
+
+            .p {
+                font-size: 13px;
+            }
+
+            .number {
+                min-height: 58px;
+            }
+
+            .spanOne {
+                right: 13px;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
 
-  
+
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
+
     <div class="main">
 
-    <img class="logo" src="aiman.png" alt="">
-    <button class="btn">Sign In</button>
-    <p class="para">Unlimited movies, TV</p>
-    <p class="para2">shows, and more</p>
-    <p class="para3">Starts at USD 2.99. Cancel anytime</p>
-    <p class="para4">Ready to watch? Enter your email to create or restart your membership</p>
-    <input type="text" class="search" placeholder="Email address" type="email" name="email" autocomplete="email" required>
-    <button class="btn2">Get started ></button>
+        <img
+            class="logo"
+            src="aiman.png"
+            alt="Netflix"
+        >
 
-    <div class="grad">
-        <p class="trend">Trending Now</p>
+        <button class="btn">
+            Sign In
+        </button>
+
+
+        <div class="hero-content">
+
+            <p class="para">
+                Unlimited movies, TV
+            </p>
+
+            <p class="para2">
+                shows, and more
+            </p>
+
+            <p class="para3">
+                Starts at USD 2.99. Cancel anytime
+            </p>
+
+            <p class="para4">
+                Ready to watch? Enter your email to create or restart your membership
+            </p>
+
+
+            <div class="hero-form">
+
+                <input
+                    type="email"
+                    class="search"
+                    placeholder="Email address"
+                    name="email"
+                    autocomplete="email"
+                    required
+                >
+
+                <button class="btn2">
+                    Get started &gt;
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="grad"></div>
+
     </div>
-    
+
+
+    <!-- =========================================================
+         BLACK CONTENT AREA
+         ========================================================= -->
+
     <div class="another">
 
-        
-           <div class="game">
 
-            <img src="n1.jpg" alt="" class="aiman" id="n1" onclick="">
-            <img src="2.webp" alt="" class="aiman" onclick="">
-            <img src="3.webp" alt="" class="aiman" onclick="">
-            <img src="4.webp" alt="" class="aiman" onclick="">
-            <img src="5.webp" alt="" class="aiman" onclick="">
-            <img src="6.webp" alt="" class="aiman" onclick="">
+        <div class="section-inner">
 
 
-           </div>
-        
-            
+            <!-- =====================================================
+                 TRENDING
+                 ===================================================== -->
 
-            <div class="slide">
-
-            <img src="5.webp" alt="" class="aiman" onclick="">
-            <img src="6.webp" alt="" class="aiman" onclick="">
-            
-            
-
-            <img src="7.webp" alt="" class="aiman" onclick="">
-            <img src="8.webp" alt="" class="aiman" onclick="">
-            <img src="9.webp" alt="" class="aiman" onclick="">
-            <img src="10.webp" alt=""class="aiman" onclick="">
+            <p class="trend">
+                Trending Now
+            </p>
 
 
-            
-            </div>
-           
-            
-
-        </div>
-
-    
-
-        </div>
-
-                <div class="cover" >
-                    <button class="Happiest" onclick="
-                    
-                    let agc= document.querySelector('.slide');
-                    let rmn= document.querySelector('.game');
-                    let gojo= document.querySelector('.Happiest');
-                    let gojo3= document.querySelector('.Luckiest');
-                    let cover= document.querySelector('.cover');
-                    
-                   
-                    if (window.getComputedStyle(agc).display == 'none')
-
-                    {
-                        agc.style.display = 'flex';
-                        agc.style.transform = 'translateX(70px)';
-                        rmn.style.display= 'none';
-                        gojo.style.display= 'none';
-                        gojo3.style.display= 'block';
-                        cover.style.zIndex= '-1';
-                    }
+            <div class="trending-wrapper">
 
 
-                    ">></button>
+                <div class="poster-row">
+
+
+                    <div class="game">
+
+                        <img
+                            src="n1.jpg"
+                            alt="Trending title"
+                            class="aiman"
+                        >
+
+                        <img
+                            src="2.webp"
+                            alt="Trending title"
+                            class="aiman"
+                        >
+
+                        <img
+                            src="3.webp"
+                            alt="Trending title"
+                            class="aiman"
+                        >
+
+                        <img
+                            src="4.webp"
+                            alt="Trending title"
+                            class="aiman"
+                        >
+
+                        <img
+                            src="5.webp"
+                            alt="Trending title"
+                            class="aiman"
+                        >
+
+                        <img
+                            src="6.webp"
+                            alt="Trending title"
+                            class="aiman"
+                        >
+
+                    </div>
+
+
+                    <div class="slide">
+
+                        <img
+                            src="5.webp"
+                            alt="Trending title"
+                            class="aiman"
+                        >
+
+                        <img
+                            src="6.webp"
+                            alt="Trending title"
+                            class="aiman"
+                        >
+
+                        <img
+                            src="7.webp"
+                            alt="Trending title"
+                            class="aiman"
+                        >
+
+                        <img
+                            src="8.webp"
+                            alt="Trending title"
+                            class="aiman"
+                        >
+
+                        <img
+                            src="9.webp"
+                            alt="Trending title"
+                            class="aiman"
+                        >
+
+                        <img
+                            src="10.webp"
+                            alt="Trending title"
+                            class="aiman"
+                        >
+
+                    </div>
+
+
                 </div>
+
+
+                <div class="cover">
+
+                    <button
+                        class="Happiest"
+                        aria-label="Next trending titles"
+                        onclick="
+                            let agc = document.querySelector('.slide');
+                            let rmn = document.querySelector('.game');
+
+                            let gojo = document.querySelector('.cover');
+                            let gojo3 = document.querySelector('.Luckiest');
+
+                            if (window.getComputedStyle(agc).display === 'none')
+                            {
+                                agc.style.display = 'flex';
+
+                                rmn.style.display = 'none';
+
+                                gojo.style.display = 'none';
+
+                                gojo3.style.display = 'flex';
+                            }
+                        "
+                    >
+                        &gt;
+                    </button>
+
+                </div>
+
 
                 <div class="Luckiest">
-                    <button class="Happiest" onclick="
-                        
-                    let agc1= document.querySelector('.slide');
-                    let rmn1= document.querySelector('.game');
-                    let gojo1= document.querySelector('.Luckiest');
-                    let gojo2= document.querySelector('.Happiest');
-                    let cover1= document.querySelector('.cover');
-                   
-                    if (window.getComputedStyle(agc1).display == 'flex')
 
-                    {
-                        agc1.style.display = 'none';
-                        agc1.style.transform= 'translateX(0)'
-                        rmn1.style.transform = 'translateX(-0.5px)';
-                        rmn1.style.display= 'flex';
-                        gojo1.style.display= 'none';
-                        gojo2.style.display= 'block';
-                        cover1.style.zIndex= '10';
-                    }
+                    <button
+                        class="Happiest"
+                        aria-label="Previous trending titles"
+                        onclick="
+                            let agc1 = document.querySelector('.slide');
+                            let rmn1 = document.querySelector('.game');
 
-                        
-                    "><</button>
-                </div>
+                            let gojo1 = document.querySelector('.Luckiest');
+                            let gojo2 = document.querySelector('.cover');
 
-                <p class="more">More Reasons to Join</p>
+                            if (window.getComputedStyle(agc1).display === 'flex')
+                            {
+                                agc1.style.display = 'none';
 
-                <div class="gani">
-                    <div class="a" id="b">
-                        <span>Enjoy on your TV</span>
-                        <p class="agc">
-Watch on Smart TVs, Playstation, 
-Xbox, Apple TV, Chromecast,<br>
-Blue-ray, players, and more.
-                        </p>
-                    </div>
-                    <div class="a">
-                        <span>Download your shows to 
-watch offline</span>
-<p class="agc">
-Save your favorites easily and always 
-have something to watch.    
-</p>
-                    </div>
-                    <div class="a">
-                        <span>Watch everywhere</span>
-                        <p class="agc">
-Stream unlimited movies and TV 
-shows on your phone, laptop,<br>
-tablet, and TV.                        </p>
-                    </div>
-                    <div class="a">
-                        <span>Create profiles for kids</span>
-                        <p class="agc">
-Send kids on adventures with their 
-favorite characters in a space made 
-just for them — free with your 
-membership.                            
-                        </p>
-                    </div>
-                </div>
+                                rmn1.style.display = 'flex';
 
-                <p class="penguin">Frequently Asked Questions</p>
-                
-                <div class="best">
-                    
-                    <div class="number"> 
+                                gojo1.style.display = 'none';
 
-                        <p class="p">What is Netflix?</p> 
-                            <p class="spanOne">+</p>
-                            <div class="start"></div>
-                    </div>
-                   
-                    
-                    <div class="number"> 
-                        <p class="p">How much does Netflix cost?</p> 
-                            <p class="spanOne">+</p>
-                            <div class="start"></div>
-                    </div>
-
-                    
-                    <div class="number"> 
-                        <p class="p">Where can I watch?</p> 
-                            <p class="spanOne">+</p>
-                            
-                    </div>
-                    
-                        
-                    <div class="number"> 
-                        <p class="p">How do I cancel?</p> 
-                            <p class="spanOne">+</p>
-                            
-                    </div>
-                    
-                    
-                    <div class="number"> 
-                        <p class="p">What can I watch on Netflix?</p>
-                            <p class="spanOne">+</p>
-                    </div>
-                    
-                    
-                    <div class="number"> 
-                        <p class="p">Is Netflix good for kids?</p> 
-                            <p class="spanOne">+</p>
-                            
-                    </div>
+                                gojo2.style.display = 'flex';
+                            }
+                        "
+                    >
+                        &lt;
+                    </button>
 
                 </div>
 
-                
-                <p class="paragraph">
-Ready to watch? Enter your email to create or restart your membership.
-                    </p>
-
-                
-                <div class="ab">
-                    
-    <input type="text" class="princess" placeholder="Email address" type="email" name="email" autocomplete="email" required>
-    <button class="Daisukii">Get started ></button>
-
-
-                </div>
-
-            <div class="thanks">
-
-                <div class="we">
-                    <pre class="p1">
-
-<u class="unique">Questions? Contact us.</u>
-
-
-<u class="final">FAQ</u>
-
-<u class="final">Investor Relations</u>
-
-<u class="final">Privacy</u>
-
-<u class="final">Speed Test</u>
-
-                    </pre>
-
-</div>
-                <div class="us">
-                    <pre class="p2">
-
-<u class="final">Help center</u>
-
-<u class="final">Jobs</u>
-
-<u class="final">Cookie Preferences</u>
-
-<u class="final">Legal Notices</u>
-                    </pre>
-                </div>
-                <div class="our">
-                    <pre class="p3">
-
-                        
-<u class="final">Account</u>
-
-<u class="final">Ways to Watch</u>
-
-<u class="final">Corporate Information</u>
-
-<u class="final">Only on Netflix</u>
-
-                    </pre>
-                </div>
-                <div class="Life">
-                    <pre class="p4">
-
-                        
-<u class="final">Media center</u>
-
-<u class="final">Terms of Use</u>
-
-<u class="final">Contact Us</u>
-
-
-                    </pre>
-                </div>
 
             </div>
 
-            <select name="" id="">
-                <option value="">
-                   *A English
-                </option>
 
-            </select>
+            <!-- =====================================================
+                 MORE REASONS
+                 ===================================================== -->
 
-            <pre class="happiness">
+            <p class="more">
+                More Reasons to Join
+            </p>
 
-Netflix Bangladesh 
 
-<p class="tv">
-This page is protected by Google reCAPTCHA to ensure you're not a bot. <a>Learn more.</a>
-</p>
-            
-</pre>
+            <div class="gani">
 
-                
 
-                    
+                <div class="a">
 
-                
+                    <span>
+                        Enjoy on your TV
+                    </span>
 
-    
-    
-   
-    
+                    <p class="agc">
+                        Watch on Smart TVs, Playstation,
+                        Xbox, Apple TV, Chromecast,
+                        Blue-ray, players, and more.
+                    </p>
+
+                </div>
+
+
+                <div class="a">
+
+                    <span>
+                        Download your shows to watch offline
+                    </span>
+
+                    <p class="agc">
+                        Save your favorites easily and always
+                        have something to watch.
+                    </p>
+
+                </div>
+
+
+                <div class="a">
+
+                    <span>
+                        Watch everywhere
+                    </span>
+
+                    <p class="agc">
+                        Stream unlimited movies and TV
+                        shows on your phone, laptop,
+                        tablet, and TV.
+                    </p>
+
+                </div>
+
+
+                <div class="a">
+
+                    <span>
+                        Create profiles for kids
+                    </span>
+
+                    <p class="agc">
+                        Send kids on adventures with their
+                        favorite characters in a space made
+                        just for them — free with your
+                        membership.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =====================================================
+                 FAQ
+                 ===================================================== -->
+
+            <p class="penguin">
+                Frequently Asked Questions
+            </p>
+
+
+            <div class="best">
+
+
+                <div class="number">
+
+                    <p class="p">
+                        What is Netflix?
+                    </p>
+
+                    <p class="spanOne">
+                        +
+                    </p>
+
+                </div>
+
+
+                <div class="number">
+
+                    <p class="p">
+                        How much does Netflix cost?
+                    </p>
+
+                    <p class="spanOne">
+                        +
+                    </p>
+
+                </div>
+
+
+                <div class="number">
+
+                    <p class="p">
+                        Where can I watch?
+                    </p>
+
+                    <p class="spanOne">
+                        +
+                    </p>
+
+                </div>
+
+
+                <div class="number">
+
+                    <p class="p">
+                        How do I cancel?
+                    </p>
+
+                    <p class="spanOne">
+                        +
+                    </p>
+
+                </div>
+
+
+                <div class="number">
+
+                    <p class="p">
+                        What can I watch on Netflix?
+                    </p>
+
+                    <p class="spanOne">
+                        +
+                    </p>
+
+                </div>
+
+
+                <div class="number">
+
+                    <p class="p">
+                        Is Netflix good for kids?
+                    </p>
+
+                    <p class="spanOne">
+                        +
+                    </p>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- =====================================================
+                 LOWER EMAIL
+                 ===================================================== -->
+
+            <p class="paragraph">
+                Ready to watch? Enter your email to create or restart your membership.
+            </p>
+
+
+            <div class="ab">
+
+                <input
+                    type="email"
+                    class="princess"
+                    placeholder="Email address"
+                    name="email"
+                    autocomplete="email"
+                    required
+                >
+
+                <button class="Daisukii">
+                    Get started &gt;
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =========================================================
+             FOOTER
+             ========================================================= -->
+
+        <div class="thanks">
+
+
+            <div class="we">
+
+                <pre class="p1"><u class="unique">Questions? Contact us.</u>
+<u class="final">FAQ</u>
+<u class="final">Investor Relations</u>
+<u class="final">Privacy</u>
+<u class="final">Speed Test</u></pre>
+
+            </div>
+
+
+            <div class="us">
+
+                <pre class="p2"><u class="final">Help center</u>
+<u class="final">Jobs</u>
+<u class="final">Cookie Preferences</u>
+<u class="final">Legal Notices</u></pre>
+
+            </div>
+
+
+            <div class="our">
+
+                <pre class="p3"><u class="final">Account</u>
+<u class="final">Ways to Watch</u>
+<u class="final">Corporate Information</u>
+<u class="final">Only on Netflix</u></pre>
+
+            </div>
+
+
+            <div class="Life">
+
+                <pre class="p4"><u class="final">Media center</u>
+<u class="final">Terms of Use</u>
+<u class="final">Contact Us</u></pre>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- =========================================================
+             LANGUAGE
+             ========================================================= -->
+
+        <select name="language" id="language">
+
+            <option value="en">
+                *A English
+            </option>
+
+        </select>
+
+
+        <!-- =========================================================
+             COUNTRY / RECAPTCHA
+             ========================================================= -->
+
+        <div class="happiness">
+
+            Netflix Bangladesh
+
+            <p class="tv">
+                This page is protected by Google reCAPTCHA to ensure you're not a bot.
+                <br>
+                <a>
+                    Learn more.
+                </a>
+            </p>
+
+        </div>
+
+
+    </div>
+
+
 </body>
+
 </html>
